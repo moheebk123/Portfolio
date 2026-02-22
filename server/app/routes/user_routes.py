@@ -15,12 +15,15 @@ def check_user(request: Request, response: Response):
         user_id = str(int(time.time() * random.random()))
         user = get_or_create_user(user_id)
 
-        # 👇 cookie set (no expiry = session cookie)
+        # 👇 cookie set (100 year expiry = session cookie)
         response.set_cookie(
             key="portfolio-chat",
             value=user_id,
             httponly=False,
-            samesite="lax"
+            samesite="none",
+            secure=True,
+            max_age=60 * 60 * 24 * 365 * 100,
+            path="/"
         )
         return user
 
