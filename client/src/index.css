@@ -1,19 +1,123 @@
 @import "tailwindcss";
 
-*{
-    box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000c3;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ccc;
+  }
 }
 
 body {
-  display: flex;
-  place-items: center;
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: hidden;
+  background-color: #0f172a;
 }
 
 #root {
   max-width: 1280px;
+  width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.box-shadow {
+  box-shadow: 10px 61px 300px 100vw rgba(0, 0, 0, 0.43);
+}
+
+.menu-item {
+  & div {
+    opacity: 0.7;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+  }
+
+  &:hover {
+    & div {
+      transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+    }
+
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    z-index: 5;
+    background: #fff;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    transition: 0.4s ease;
+    -webkit-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
+    -ms-transition: 0.4s ease;
+    -o-transition: 0.4s ease;
+  }
+
+  &::after {
+    content: attr(data);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    bottom: -100%;
+    left: 0;
+    z-index: 5;
+    opacity: 0.7;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+  }
+
+  &.active {
+    & div {
+      opacity: 1;
+    }
+
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
 }
