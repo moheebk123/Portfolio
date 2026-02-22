@@ -1,0 +1,15 @@
+.slick-slider {
+  margin-inline: auto;
+  width: 100%;
+  height: max-content;
+
+  & .slick-arrow {
+    &::before {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
