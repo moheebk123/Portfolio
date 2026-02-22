@@ -23,7 +23,8 @@ const Chat = () => {
 
   const dispatch = useDispatch();
 
-  const sendQuestion = useCallback(async () => {
+  const sendQuestion = useCallback(async (e) => {
+    e.preventDefault();
     const question = questionRef.current.value;
     if (!question) return;
     dispatch(
@@ -130,20 +131,21 @@ const Chat = () => {
                 )}
               </div>
 
-            <div className="p-3 bg-white shadow-2xl rounded-t-xl border-t border-t-gray-300 flex gap-3">
+            <form onSubmit={sendQuestion} className="p-3 bg-white shadow-2xl rounded-t-xl border-t border-t-gray-300 flex gap-3">
               <input
                 type="text"
                 placeholder="Type your question..."
                 ref={questionRef}
                 className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+              <button type="submit">
               <img
-                className="border w-12 p-1 rounded-full border-blue-500 cursor-pointer"
+                className="border w-12 p-1 rounded-full border-blue-600 cursor-pointer"
                 src={send}
                 alt="Send"
-                onClick={sendQuestion}
-              />
-            </div>
+                />
+                </button>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
