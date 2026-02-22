@@ -123,12 +123,10 @@ const Chat = () => {
                     </div>
                   );
                 })}
-                {isLoadingChatResponse ? (
+                {isLoadingChatResponse && (
                   <div className="w-fit rounded-xl px-4 py-2 text-sm leading-relaxed border border-blue-500 bg-blue-50">
                     🔵🔵🔵
                   </div>
-                ) : (
-                  <></>
                 )}
               </div>
 
