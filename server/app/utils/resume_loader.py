@@ -6,9 +6,11 @@ Details:
 - Email: moheebk522@gmail.com
 - Mobile Number: +917982831127
 - Location: Delhi, India
+- Address: Kucha Tara Chand, Daryaganj, New Delhi, Delhi, India
 - Portfolio: https://moheeb-khan-portfolio.vercel.app
 - Github: https://github.com/moheebk123
 - LinkedIn: https://www.linkedin.com/in/moheebkhan
+- Resume: https://drive.google.com/file/d/1mM3Cv-Slp7PgOkgsy0tPOs_pwc5fRsH_/view?usp=sharing
 
 Education:
 - BCA from GGSIPU with CGPA 8.4 (2022–2025)
