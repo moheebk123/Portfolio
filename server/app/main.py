@@ -14,5 +14,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"status": "API running"}
+
 app.include_router(user_router)
 app.include_router(chat_router)
