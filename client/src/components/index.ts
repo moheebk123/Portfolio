@@ -4,6 +4,7 @@ import Sidebar from "./layout/Sidebar";
 
 import Achievement from "./common/Achievement";
 import Arrow from "./common/Arrow";
+import ContactForm from "./common/ContactForm";
 import ContactLink from "./common/ContactLink";
 import Cursor from "./common/Cursor";
 import EducationCard from "./common/EducationCard";
@@ -23,6 +24,7 @@ export {
   Sidebar,
   Achievement,
   Arrow,
+  ContactForm,
   ContactLink,
   Cursor,
   EducationCard,
