@@ -29,7 +29,11 @@ def chat_with_ai(user_id: str, question: str):
 
     user_collection.update_one(
         {"userId": user_id},
-        {"$push": {"history": {"user": question, "response": answer}}}
+        {"$push": {"history": {"type": "user", "message": question}}}
+    )
+    user_collection.update_one(
+        {"userId": user_id},
+        {"$push": {"history": {"type": "ai", "message": answer}}}
     )
 
     return answer
