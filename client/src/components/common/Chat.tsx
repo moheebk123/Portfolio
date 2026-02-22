@@ -34,6 +34,7 @@ const Chat = () => {
       }),
     );
     setIsLoadingChatResponse(true);
+    questionRef.current.value = "";
     const res = await chat({ userId: user, question });
     if (res.answer) {
       setIsLoadingChatResponse(false);
@@ -44,7 +45,6 @@ const Chat = () => {
         }),
       );
     }
-    questionRef.current.value = "";
   }, [dispatch, user]);
 
   useEffect(() => {
