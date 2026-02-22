@@ -1,13 +1,17 @@
 from app.config.db import user_collection
 from app.models.user_model import user_schema
+from app.utils.serializer import serialize_mongo
 
-def check_or_create_user(user_id: str):
+def get_or_create_user(user_id: str):
     user = user_collection.find_one({"userId": user_id})
 
     if not user:
         new_user = user_schema(user_id)
-        user_collection.insert_one(new_user)
-        return new_user
+        result = user_collection.insert_one(new_user)
 
-    user["_id"] = str(user["_id"])
-    return user
+        return {
+            "userId": user_id,
+            "history": []
+        }
+
+    return serialize_mongo(user)
