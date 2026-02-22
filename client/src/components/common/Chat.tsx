@@ -23,7 +23,7 @@ const Chat = () => {
 
   const dispatch = useDispatch();
 
-  const sendQuestion = useCallback( async () => {
+  const sendQuestion = useCallback(async () => {
     const question = questionRef.current.value;
     if (!question) return;
     dispatch(
@@ -93,41 +93,44 @@ const Chat = () => {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-3 py-4 space-y-3">
-              {history.length === 0 && (
-                <p className="text-center text-sm text-gray-500">
-                  Ask me anything about my experience 👋
-                </p>
-              )}
 
-              {history.map((chat, index) => {
-                const isUser = chat.type === "user";
+                {isLoadingChat && (<p className="h-full flex justify-center items-center font-semibold">
+                  ⏳ Loading chats...
+                  <br />
+                  It will take a while to load be patient.
+                  </p>)}
 
-                return (
-                  <div
-                    key={index}
-                    className={`flex ${isUser ? "justify-end" : "justify-start"}`}
-                  >
+                {history.length === 0 ? <p className="text-center text-sm text-gray-500">
+                    Ask me anything about my experience 👋
+                  </p> : history.map((chat, index) => {
+                  const isUser = chat.type === "user";
+
+                  return (
                     <div
-                      className={`max-w-[80%] rounded-xl px-4 py-2 text-sm leading-relaxed
+                      key={index}
+                      className={`flex ${isUser ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-[80%] rounded-xl px-4 py-2 text-sm leading-relaxed
                         ${
                           isUser
                             ? "bg-blue-600 text-white"
                             : "bg-blue-50 text-blue-700 border border-blue-300"
                         }`}
-                    >
-                      {chat.message}
+                      >
+                        {chat.message}
+                      </div>
                     </div>
+                  );
+                })}
+                {isLoadingChatResponse ? (
+                  <div className="w-fit rounded-xl px-4 py-2 text-sm leading-relaxed border border-blue-500 bg-blue-50">
+                    🔵🔵🔵
                   </div>
-                );
-              })}
-              {isLoadingChatResponse ? (
-                <div className="w-fit rounded-xl px-4 py-2 text-sm leading-relaxed border border-blue-500 bg-blue-50">
-                  🔵🔵🔵
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
+                ) : (
+                  <></>
+                )}
+              </div>
 
             <div className="p-3 bg-white shadow-2xl rounded-t-xl border-t border-t-gray-300 flex gap-3">
               <input
