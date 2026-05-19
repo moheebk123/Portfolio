@@ -74,7 +74,7 @@ const Home = () => {
           className="flex space-x-4"
         >
           <a
-            href="https://drive.google.com/file/d/1WTf0GXOc5Ed1tu_9BmCxiAsBT52wHG5y/view?usp=sharing"
+            href="https://drive.google.com/file/d/1fGYdxKzLOEh2fWqImJSV3sBSf33C53fn/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-zinc-100 text-black font-semibold py-2 px-6 rounded-md shadow-lg hover:bg-transparent hover:border hover:border-white hover:text-white hover:scale-110 ease-in-out duration-300 transition"
