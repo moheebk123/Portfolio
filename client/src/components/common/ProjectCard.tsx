@@ -65,7 +65,7 @@ const ProjectCard = ({ rowReverse, y, project }: ProjectCard) => {
           target="blank"
           className="transition ease-in-out duration-700 text-black bg-white px-20 py-2 text-lg font-bold rounded-xl hover:text-white hover:bg-black hover:cursor-pointer mr-3"
         >
-          Visit
+          Visit &#8599;
         </motion.a>
         <motion.a
           initial={{ y: -100, opacity: 0 }}

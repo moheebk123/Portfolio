@@ -85,7 +85,7 @@ const Home = () => {
             to="/contact"
             className="border border-white text-white font-semibold py-2 px-6 rounded-md shadow-lg hover:bg-white hover:text-black hover:scale-110 ease-in-out duration-300 transition"
           >
-            Contact &#8599;
+            Contact
           </Link>
         </motion.div>
       </div>
