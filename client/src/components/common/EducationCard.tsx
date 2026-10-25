@@ -37,27 +37,37 @@ const EducationCard = ({ education, x, positionRight }: EducationCard) => {
             : "md:col-start-1 md:col-end-2 justify-end"
         } flex`}
       >
-        <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-3/4">
-          <h3 className="text-xl font-bold mb-2">
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-3/4 font-semibold">
+          <h3 className="text-lg lg:text-2xl mb-2 text-center border-b">
             {education.class && education.class}
             {education.class && <sup>th</sup>} {education.course}
           </h3>
-          <h4 className="text-lg font-semibold mb-2">{education.institute}</h4>
-          <p className="text-gray-900 mb-">{education.year}</p>
-          <p className="text-gray-700 mb-4">{education.marks}</p>
-          {education.marksheetUrl && education.imgUrl && (
-            <a
-              href={education.marksheetUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <h4 className="text-center lg:text-xl mb-2 grid lg:px-10">
+            {education.institute}
+          </h4>
+          <div className="flex w-full h-fit gap-5 items-center text-sm lg:text-lg">
+            {education.imgUrl && (
               <img
-                src={education.imgUrl}
-                alt="Tenth Marksheet"
-                className="w-14"
+              src={education.imgUrl}
+              alt="Tenth Marksheet"
+              className="w-18"
               />
-            </a>
-          )}
+            )}
+            <div>
+              <p className="text-gray-900">{education.year}</p>
+              <p className="text-gray-700">{education.marks}</p>
+              {education.marksheetUrl && (
+              <a
+                href={education.marksheetUrl}
+                target="_blank"
+                  rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600 underline"
+              >
+                Marksheet
+              </a>
+            )}
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>

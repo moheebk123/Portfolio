@@ -8,6 +8,7 @@ interface Project {
   heading: string;
   description: string;
   liveLink: string;
+  codeLink: string;
   skills: string;
   imgUrl: string;
   alt: string;
@@ -62,12 +63,19 @@ const ProjectCard = ({ rowReverse, y, project }: ProjectCard) => {
           transition={{ ease: "easeInOut", duration: 1, delay: 0.8 }}
           href={project.liveLink}
           target="blank"
+          className="transition ease-in-out duration-700 text-black bg-white px-20 py-2 text-lg font-bold rounded-xl hover:text-white hover:bg-black hover:cursor-pointer mr-3"
         >
-          <button className="transition ease-in-out duration-700 text-black bg-white px-20 py-2 text-lg font-bold rounded-xl hover:text-white hover:bg-black hover:cursor-pointer">
-            {project.heading === "Real-Time Collaboration Text Editor"
-              ? "Drive Video Link"
-              : "Live"}
-          </button>
+          Visit
+        </motion.a>
+        <motion.a
+          initial={{ y: -100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 1, delay: 0.8 }}
+          href={project.codeLink}
+          target="blank"
+          className="transition ease-in-out duration-700 text-black border border-white bg-transparent text-white px-20 py-2 text-lg font-bold rounded-xl hover:text-black hover:bg-white hover:cursor-pointer"
+        >
+          Code
         </motion.a>
       </motion.div>
       <div className="w-full md:w-1/2 grid place-content-center">
@@ -100,6 +108,7 @@ ProjectCard.propTypes = {
     heading: propTypes.string.isRequired,
     description: propTypes.string.isRequired,
     liveLink: propTypes.string.isRequired,
+    codeLink: propTypes.string.isRequired,
     skills: propTypes.string.isRequired,
     imgUrl: propTypes.string.isRequired,
     alt: propTypes.string.isRequired,
