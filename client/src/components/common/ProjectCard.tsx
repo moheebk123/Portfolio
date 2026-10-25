@@ -73,7 +73,7 @@ const ProjectCard = ({ rowReverse, y, project }: ProjectCard) => {
           transition={{ ease: "easeInOut", duration: 1, delay: 0.8 }}
           href={project.codeLink}
           target="blank"
-          className="transition ease-in-out duration-700 text-black border border-white bg-transparent text-white px-20 py-2 text-lg font-bold rounded-xl hover:text-black hover:bg-white hover:cursor-pointer"
+          className="transition ease-in-out duration-700 border border-white bg-transparent text-white px-20 py-2 text-lg font-bold rounded-xl hover:text-black hover:bg-white hover:cursor-pointer"
         >
           Code
         </motion.a>
